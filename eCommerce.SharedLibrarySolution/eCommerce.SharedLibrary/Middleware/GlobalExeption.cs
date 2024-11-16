@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace eCommerce.SharedLibrary.Middleware
 {
-    internal class GlobalExeption(RequestDelegate next)
+    public class GlobalExeption(RequestDelegate next)
     {
         public async Task InvokeAsunc(HttpContext context)
         {
@@ -67,7 +67,7 @@ namespace eCommerce.SharedLibrary.Middleware
         private async Task ModifyHeader(HttpContext context, string title, string message, int statusCode)
         {
             context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonSerializer.Serialize(new ProblemDetails(
+            await context.Response.WriteAsync(JsonSerializer.Serialize(new ProblemDetails
             {
                 Detail = message,
                 Status = statusCode,
