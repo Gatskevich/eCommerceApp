@@ -8,7 +8,7 @@ namespace eCommerce.SharedLibrary.Middleware
 {
     public class GlobalExeption(RequestDelegate next)
     {
-        public async Task InvokeAsunc(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             string message = "sorry, internal server error occured. Kindly try again";
             int statusCode = (int)HttpStatusCode.InternalServerError;
