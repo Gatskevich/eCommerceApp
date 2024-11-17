@@ -53,7 +53,7 @@ namespace ProductApi.Infrastructure.Repositories
                     return new Response(false, $"{entity.Name} not found");
                 }
 
-                context.Products.Remove(entity);
+                context.Products.Remove(product);
                 await context.SaveChangesAsync();
 
                 return new Response(true, $"{entity.Name} is deleted succseddfully");
@@ -128,7 +128,7 @@ namespace ProductApi.Infrastructure.Repositories
             try
             {
                 var product = await FindByIdAsync(entity.Id);
-                if (product is not null)
+                if (product is null)
                 {
                     return new Response(false, $"{entity.Name} not found");
                 }
