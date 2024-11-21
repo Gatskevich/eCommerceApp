@@ -67,7 +67,7 @@ namespace OrderApi.Presentation.Controllers
             return Ok(orders);
         }
 
-        [HttpGet("details{clientId:int}")]
+        [HttpGet("details{orderId:int}")]
         public async Task<ActionResult<OrderDetailsDTO>> GetOrderDeatils(int orderId)
         {
             if (orderId <= 0)
