@@ -50,7 +50,7 @@ namespace OrderApi.Application.Services
         }
 
         // GET ORDER DETAILS BY ID
-        public async Task<OrderDetailsDTO> GetOrderDetailsDTO(int orderId)
+        public async Task<OrderDetailsDTO> GetOrderDetails(int orderId)
         {
             // Prepare Order
             var order = await orderInterface.FindByIdAsync(orderId);
