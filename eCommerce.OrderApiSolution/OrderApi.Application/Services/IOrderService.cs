@@ -11,6 +11,6 @@ namespace OrderApi.Application.Services
     public interface IOrderService
     {
         Task<IEnumerable<OrderDTO>> GetOrdersByClientId(int clientId);
-        Task<OrderDetailsDTO> GetOrderDetailsDTO(int orderId);
+        Task<OrderDetailsDTO> GetOrderDetails(int orderId);
     }
 }

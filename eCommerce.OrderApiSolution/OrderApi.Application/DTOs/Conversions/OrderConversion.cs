@@ -34,11 +34,11 @@ namespace OrderApi.Application.DTOs.Conversions
             {
                 var _orders = orders!.Select(o =>
                 new OrderDTO(
-                    order!.Id,
-                    order.ClientId,
-                    order.ProductId,
-                    order.PurchaseQuantity,
-                    order.OrderedDate));
+                    o!.Id,
+                    o.ClientId,
+                    o.ProductId,
+                    o.PurchaseQuantity,
+                    o.OrderedDate));
 
                 return (null, _orders);
             }
