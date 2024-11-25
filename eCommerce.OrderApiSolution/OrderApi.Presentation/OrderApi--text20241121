@@ -1,0 +1,16 @@
+2024-11-21 16:27:00.553 +01:00 [INF] Unable to resolve service for type 'OrderApi.Application.Services.IOrderService' while attempting to activate 'OrderApi.Presentation.Controllers.OrdersController'.
+2024-11-21 16:27:00.586 +01:00 [WRN] Unable to resolve service for type 'OrderApi.Application.Services.IOrderService' while attempting to activate 'OrderApi.Presentation.Controllers.OrdersController'.
+2024-11-21 18:04:03.783 +01:00 [INF] An error occurred while saving the entity changes. See the inner exception for details.
+2024-11-21 18:04:03.822 +01:00 [WRN] An error occurred while saving the entity changes. See the inner exception for details.
+2024-11-21 18:15:12.099 +01:00 [INF] Object reference not set to an instance of an object.
+2024-11-21 18:15:12.124 +01:00 [WRN] Object reference not set to an instance of an object.
+2024-11-21 18:15:41.020 +01:00 [INF] Object reference not set to an instance of an object.
+2024-11-21 18:15:41.022 +01:00 [WRN] Object reference not set to an instance of an object.
+2024-11-21 18:16:41.165 +01:00 [WRN] OnRetry, Attempt: 0 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2024-11-21 18:16:42.756 +01:00 [WRN] OnRetry, Attempt: 1 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2024-11-21 18:16:44.438 +01:00 [WRN] OnRetry, Attempt: 2 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2024-11-21 18:16:46.118 +01:00 [INF] The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2024-11-21 18:16:46.122 +01:00 [WRN] The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2024-11-21 18:17:41.697 +01:00 [WRN] OnRetry, Attempt: 0 Outcome The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2024-11-21 18:21:57.725 +01:00 [INF] Object reference not set to an instance of an object.
+2024-11-21 18:21:57.761 +01:00 [WRN] Object reference not set to an instance of an object.
