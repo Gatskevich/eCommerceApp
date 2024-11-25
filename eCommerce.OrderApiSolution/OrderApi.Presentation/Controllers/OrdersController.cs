@@ -67,7 +67,7 @@ namespace OrderApi.Presentation.Controllers
             return Ok(orders);
         }
 
-        [HttpGet("details{orderId:int}")]
+        [HttpGet("details/{orderId:int}")]
         public async Task<ActionResult<OrderDetailsDTO>> GetOrderDeatils(int orderId)
         {
             if (orderId <= 0)
@@ -79,10 +79,10 @@ namespace OrderApi.Presentation.Controllers
 
             if (orderDetail.OrderId > 0)
             {
-                return NotFound("No order found");
+                return Ok(orderDetail);
             }
 
-            return Ok(orderDetail);
+            return NotFound("No order found");
         }
 
         [HttpPost]

@@ -51,14 +51,14 @@ namespace AuthenticationApi.Infrastructure.Repositories
 
             string token = GenerateToken(getUser);
 
-            return new Response(false, token);
+            return new Response(true, token);
         }
 
         public async Task<Response> Register(AppUserDTO appUserDTO)
         {
             var getUser = await GetUserByEmail(appUserDTO.Email);
 
-            if (getUser is null)
+            if (getUser is not null)
             {
                 return new Response(false, $"you cannot use this email for registration");
             }
