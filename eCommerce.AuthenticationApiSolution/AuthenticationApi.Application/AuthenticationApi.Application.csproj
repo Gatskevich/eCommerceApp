@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\eCommerce.SharedLibrarySolution\eCommerce.SharedLibrary\eCommerce.SharedLibrary.csproj" />
+    <ProjectReference Include="..\AuthenticationApi.Domain\AuthenticationApi.Domain.csproj" />
   </ItemGroup>
 
 </Project>
