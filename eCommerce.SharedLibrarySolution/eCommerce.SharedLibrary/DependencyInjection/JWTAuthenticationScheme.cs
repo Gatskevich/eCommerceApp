@@ -2,17 +2,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace eCommerce.SharedLibrary.DependencyInjection
 {
-    public static class JWTAuthencticationSheme
+    public static class JWTAuthenticationScheme
     {
-        public static IServiceCollection AddJWTAuthenticationSheme(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddJWTAuthenticationScheme(this IServiceCollection services, IConfiguration config)
         {
             // add JWT service
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

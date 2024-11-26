@@ -32,7 +32,7 @@ namespace eCommerce.SharedLibrary.DependencyInjection
                 .CreateLogger();
 
             // Add JWT authentication Scheme
-            JWTAuthencticationSheme.AddJWTAuthenticationSheme(services, config);
+            JWTAuthenticationScheme.AddJWTAuthenticationScheme(services, config);
 
             return services;
         }
@@ -43,7 +43,7 @@ namespace eCommerce.SharedLibrary.DependencyInjection
             app.UseMiddleware<GlobalExeption>();
 
             // Register middleware to block all outsiders API calls
-            //app.UseMiddleware<ListenToOnlyApiGateway>();
+            app.UseMiddleware<ListenToOnlyApiGateway>();
 
             return app;
         }

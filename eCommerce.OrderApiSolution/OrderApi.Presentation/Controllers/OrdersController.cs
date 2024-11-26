@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using eCommerce.SharedLibrary.Responses;
-using Microsoft.AspNetCore.Http;
+﻿using eCommerce.SharedLibrary.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrderApi.Application.DTO;
 using OrderApi.Application.DTOs;
@@ -12,6 +11,7 @@ namespace OrderApi.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrdersController(IOrder orderInterface, IOrderService orderService) : ControllerBase
     {
         [HttpGet]
