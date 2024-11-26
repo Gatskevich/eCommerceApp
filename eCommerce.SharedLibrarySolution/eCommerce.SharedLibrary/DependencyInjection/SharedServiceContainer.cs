@@ -32,7 +32,7 @@ namespace eCommerce.SharedLibrary.DependencyInjection
                 .CreateLogger();
 
             // Add JWT authentication Scheme
-            JWTAuthencticationSheme.AddJWTAuthenticationSheme(services, config);
+            JWTAuthenticationScheme.AddJWTAuthenticationScheme(services, config);
 
             return services;
         }
