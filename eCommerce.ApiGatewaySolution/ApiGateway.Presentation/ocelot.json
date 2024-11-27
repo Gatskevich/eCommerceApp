@@ -71,7 +71,7 @@
                 }
             ],
             "UpstreamPathTemplate": "/api/products/{everything}",
-            "UpstreamHttpMethod": [ "POST, PUT, DELETE" ],
+            "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
@@ -133,7 +133,7 @@
                 }
             ],
             "UpstreamPathTemplate": "/api/orders/{everything}",
-            "UpstreamHttpMethod": [ "POST, PUT, DELETE" ],
+            "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
