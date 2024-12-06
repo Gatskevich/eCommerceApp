@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace ProductApi.Infrastructure.Repositories
 {
-    internal class ProductRepository(ProductDbContext context) : IProduct
+    public class ProductRepository(ProductDbContext context) : IProduct
     {
         public async Task<Response> CreateAsync(Product entity)
         {
@@ -56,7 +56,7 @@ namespace ProductApi.Infrastructure.Repositories
                 context.Products.Remove(product);
                 await context.SaveChangesAsync();
 
-                return new Response(true, $"{entity.Name} is deleted succseddfully");
+                return new Response(true, $"{entity.Name} is deleted successfully");
     
             }
             catch (Exception ex)
