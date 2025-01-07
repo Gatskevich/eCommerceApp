@@ -17,5 +17,5 @@
   <ItemGroup>
     <ProjectReference Include="..\OrderApi.Infrastructure\OrderApi.Infrastructure.csproj" />
   </ItemGroup>
-
+	
 </Project>
