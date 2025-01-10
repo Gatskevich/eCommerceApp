@@ -1,4 +1,5 @@
-﻿using ProductApi.Domain.Entities;
+﻿using eCommerce.SharedLibrary.DTOs.Responses;
+using ProductApi.Domain.Entities;
 
 namespace ProductApi.Application.DTOs.Conversions
 {

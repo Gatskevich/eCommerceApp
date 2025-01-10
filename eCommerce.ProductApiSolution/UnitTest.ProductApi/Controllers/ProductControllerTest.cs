@@ -1,8 +1,8 @@
-﻿using FakeItEasy;
+﻿using eCommerce.SharedLibrary.DTOs.Responses;
+using FakeItEasy;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProductApi.Application.DTOs;
 using ProductApi.Application.Interfaces;
 using ProductApi.Domain.Entities;
 using ProductApi.Presentation.Controllers;

@@ -1,8 +1,7 @@
-﻿using eCommerce.SharedLibrary.Responses;
+﻿using eCommerce.SharedLibrary.DTOs.Responses;
+using eCommerce.SharedLibrary.Responses;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProductApi.Application.DTOs;
 using ProductApi.Application.DTOs.Conversions;
 using ProductApi.Application.Interfaces;
 

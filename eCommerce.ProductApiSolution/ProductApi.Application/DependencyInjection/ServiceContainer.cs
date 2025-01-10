@@ -1,9 +1,10 @@
-﻿using MassTransit;
+﻿using eCommerce.SharedLibrary.DTOs.Requests;
+using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OrderApi.Application.Services;
+using ProductApi.Application.Consumers;
 
-namespace OrderApi.Application.DependencyInjection
+namespace ProductApi.Application.DependencyInjection
 {
     public static class ServiceContainer
     {
@@ -11,24 +12,22 @@ namespace OrderApi.Application.DependencyInjection
         {
             services.AddMassTransit(x =>
             {
+                x.AddConsumer<GetProductRequestConsumer>();
+   
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.AutoStart = true;
-
                     cfg.Host(config["RabbitMQ:HostName"], h =>
                     {
                         h.Username(config["RabbitMQ:UserName"]);
                         h.Password(config["RabbitMQ:Password"]);
                     });
 
-                    cfg.UseMessageRetry(r =>
+                    cfg.ReceiveEndpoint("get-product-queue", e =>
                     {
-                        r.Interval(3, TimeSpan.FromSeconds(5));
+                        e.ConfigureConsumer<GetProductRequestConsumer>(context);
                     });
                 });
             });
-
-            services.AddScoped<IOrderService, OrderService>();
 
             return services;
         }
