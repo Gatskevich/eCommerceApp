@@ -1,47 +1,44 @@
-﻿using System.Net.Http.Json;
+﻿using eCommerce.SharedLibrary.DTOs.Requests;
+using eCommerce.SharedLibrary.DTOs.Responses;
+using MassTransit;
 using OrderApi.Application.DTO;
 using OrderApi.Application.DTOs;
 using OrderApi.Application.DTOs.Conversions;
 using OrderApi.Application.Interfaces;
-using Polly.Registry;
 
 namespace OrderApi.Application.Services
 {
     public class OrderService( 
-        IOrder orderInterface, 
-        HttpClient httpClient, 
-        ResiliencePipelineProvider<string> resiliencePipeline) : IOrderService
+        IOrder orderInterface,
+        IRequestClient<GetProductRequest> productClient,
+        IRequestClient<GetUserRequest> userClient) : IOrderService
     {
         //GET PRODUCT
         public async Task<ProductDTO> GetProduct(int productId)
         {
-            // Call Product ApI using HttpClient
-            // Redirect this call to the ApI Gateway since product Api is not response to outsiders.
-            var getProduct = await httpClient.GetAsync($"/api/products/{productId}");
-            if(!getProduct.IsSuccessStatusCode)
+            try
             {
-                return null!;
+                var productRequest = new GetProductRequest(productId);
+                var response = await productClient.GetResponse<ProductDTO>(productRequest);
+                var product = response.Message;
+
+                return product;
             }
-
-            var product = await getProduct.Content.ReadFromJsonAsync<ProductDTO>();
-            return product!;
-
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
 
         //GET USER
-        public async Task<AppUserDTO> GetUser(int userId)
+        public async Task<GetUserDTO> GetUser(int userId)
         {
-            // Call Product ApI using HttpClient
-            // Redirect this call to the ApI Gateway since product Api is not response to outsiders.
-            var getUser = await httpClient.GetAsync($"api/authentication/{userId}");
-            if (!getUser.IsSuccessStatusCode)
-            {
-                return null!;
-            }
+            var userRequest = new GetUserRequest(userId);
+            var response = await userClient.GetResponse<GetUserDTO>(userRequest);
+            var user = response.Message;
 
-            var product = await getUser.Content.ReadFromJsonAsync<AppUserDTO>();
-            return product!;
-
+            return user;
         }
 
         // GET ORDER DETAILS BY ID
@@ -55,14 +52,11 @@ namespace OrderApi.Application.Services
                 return null!;
             }
 
-            // Get Retry pipline
-            var retryPipline = resiliencePipeline.GetPipeline("my-retry-pipline");
-
             // Prepare Product
-            var productDTO = await retryPipline.ExecuteAsync(async token => await GetProduct(order.ProductId));
+            var productDTO = await GetProduct(order.ProductId);
 
             // Prepare Client
-            var appUserDTO = await retryPipline.ExecuteAsync(async token => await GetUser(order.ClientId));
+            var appUserDTO = await GetUser(order.ClientId);
 
             // Populate order Details
             return new OrderDetailsDTO(
