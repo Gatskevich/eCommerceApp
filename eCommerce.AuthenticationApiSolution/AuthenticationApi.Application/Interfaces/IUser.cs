@@ -1,4 +1,5 @@
 ﻿using AuthenticationApi.Application.DTOs;
+using eCommerce.SharedLibrary.DTOs.Responses;
 using eCommerce.SharedLibrary.Responses;
 
 namespace AuthenticationApi.Application.Interfaces

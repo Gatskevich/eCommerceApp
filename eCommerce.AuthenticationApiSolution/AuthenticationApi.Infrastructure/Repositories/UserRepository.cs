@@ -5,6 +5,7 @@ using AuthenticationApi.Application.DTOs;
 using AuthenticationApi.Application.Interfaces;
 using AuthenticationApi.Domain.Entities;
 using AuthenticationApi.Infrastructure.Data;
+using eCommerce.SharedLibrary.DTOs.Responses;
 using eCommerce.SharedLibrary.Responses;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
